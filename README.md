@@ -1,25 +1,55 @@
-# Pune House Price Prediction
+# 🏡 Pune House Price Prediction
 
-This data science project series walks through step by step process of how to build a real estate price prediction website. We will first build a model using sklearn and linear regression using Pune House prices dataset from kaggle.com. Second step would be to write a python flask server that uses the saved model to serve http requests. Third component is the website built in html, css and javascript that allows user to enter home square ft area, bedrooms etc and it will call python flask server to retrieve the predicted price. During model building we will cover almost all data science concepts such as data load and cleaning, outlier detection and removal, feature engineering, dimensionality reduction, gridsearchcv for hyperparameter tunning, k fold cross validation etc. Technology and tools wise this project covers,
+This data science project walks through the step-by-step process of building a **real estate price prediction website**. We use **Pune House Prices Dataset** from Kaggle to predict property prices. The project is divided into three main components:
 
-1. Python.
-2. Numpy and Pandas for data cleaning.
-3. Matplotlib for data visualization.
-4. Sklearn for model building.
-5. Jupyter notebook, visual studio code and pycharm as IDE.
-6. Python flask for http server.
-7. HTML/CSS/Javascript for UI.
-8. Testing site on NGINX (on windows).
-9. Deployment of Project on AWS cloud EC2 (ubuntu).
+1. **Model Building**: Using **sklearn** and **linear regression**.
+2. **Python Flask API**: Serving predictions via an HTTP server.
+3. **Frontend**: Built with **HTML/CSS/JavaScript** to accept inputs like home area, bedrooms, etc., and retrieve the predicted price from the Flask API.
 
-# Deploy this app to cloud (AWS EC2)
+The project covers various **data science concepts** such as:
+- Data loading and cleaning
+- Outlier detection and removal
+- Feature engineering
+- Dimensionality reduction
+- Hyperparameter tuning using GridSearchCV
+- K-Fold cross-validation
 
-1. Create EC2 instance using amazon console, also in security group add a rule to allow HTTP incoming traffic
-2. Now connect to your instance using a command like this,
-```
-ssh -i "C:\Users\ADMIN\.ssh\pune.pem" ubuntu@ec2-13-233-22-49.ap-south-1.compute.amazonaws.com
-```
-3. nginx setup
+## 💻 Technologies and Tools
+
+- **Python**
+- **Numpy** and **Pandas** for data cleaning
+- **Matplotlib** for data visualization
+- **Sklearn** for model building
+- **Jupyter Notebook**, **VS Code**, and **PyCharm** as IDEs
+- **Flask** for the backend server
+- **HTML/CSS/JavaScript** for the frontend
+- **NGINX** for web server setup
+- **AWS EC2** for cloud deployment (Ubuntu)
+
+---
+
+## 📊 Data Science Process
+
+1. **Data Preprocessing**: Handle missing values, outliers, and perform feature engineering.
+2. **Model Building**: Train a linear regression model using `sklearn` and evaluate it using cross-validation.
+3. **Model Evaluation**: Tune hyperparameters using `GridSearchCV` and check performance with metrics like RMSE and R².
+4. **Flask API**: Serve the model as a REST API to make predictions.
+5. **Frontend Development**: Build a user-friendly interface to input house features and get predictions.
+
+---
+
+## 🚀 Deployment on AWS EC2
+
+### Step 1: Launch EC2 Instance
+- Create an EC2 instance using the AWS Management Console.
+- In the security group, add a rule to allow incoming HTTP traffic.
+
+### Step 2: Connect to EC2 Instance
+- Connect to the instance using SSH:
+   ```bash
+   ssh -i "C:\Users\ADMIN\.ssh\pune.pem" ubuntu@ec2-13-233-22-49.ap-south-1.compute.amazonaws.com
+
+### step 3: nginx setup
    1. Install nginx on EC2 instance using these commands,
    ```
    sudo apt-get update
@@ -31,9 +61,11 @@ ssh -i "C:\Users\ADMIN\.ssh\pune.pem" ubuntu@ec2-13-233-22-49.ap-south-1.compute
    ```
    3. Now when you load cloud url (ec2-13-233-22-49.ap-south-1.compute.amazonaws.com) in browser you will see a message saying "welcome to nginx" This means your nginx is setup and running.
 
-4. Then I copy all my code to EC2 instance by copying files using winscp.
-5. Once I connect to EC2 instance from WinSCP I copy all code files into /home/ubuntu/ folder. The full path of your root folder is now: **/home/ubuntu/HousePrices**
-6.  After copying code on EC2 server now I can point nginx to load property website by default.
+### step 4: Copy all files fron local machine to EC2
+- Then I copy all my code to EC2 instance by copying files using winscp. 
+- Once I connect to EC2 instance from WinSCP I copy all code files into /home/ubuntu/ folder. The full path of your root folder is now: **/home/ubuntu/HousePrices**
+### step 5: Create and Link configuration file.
+- After copying code on EC2 server I can point nginx to load property website by default.
     1. Create this file /etc/nginx/sites-available/php.conf. The file content looks like this,
     ```
     server {
@@ -59,11 +91,12 @@ ssh -i "C:\Users\ADMIN\.ssh\pune.pem" ubuntu@ec2-13-233-22-49.ap-south-1.compute
     ```
     sudo service nginx restart
     ```
-7. Now install python packages and start flask server
+### step 6: Now install python packages and start flask server
 ```
 python3 /home/ubuntu/HousePrices/server/server.py
 ```
-Running last command above will prompt that server is running on port 5000.
-8. Now just load cloud url in browser (for me it was http://ec2-13-233-22-49.ap-south-1.compute.amazonaws.com/) and this will be fully functional website running in production cloud environment
+- Running last command above will prompt that server is running on port 5000.
+### step 7:
+- Now just load cloud url in browser (for me it was http://ec2-13-233-22-49.ap-south-1.compute.amazonaws.com/) and this will be fully functional website running in production cloud environment
 
 
