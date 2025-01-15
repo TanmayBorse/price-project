@@ -1,6 +1,6 @@
 # 🏡 Pune House Price Prediction
 
-This data science project walks through the step-by-step process of building a **real estate price prediction website**. We use **Pune House Prices Dataset** from Kaggle to predict property prices. The project is divided into three main components:
+This data science project walks through the step-by-step process of building a **real estate price prediction website**. I use **Pune House Prices Dataset** from Kaggle to predict property prices. The project is divided into three main components:
 
 1. **Model Building**: Using **sklearn** and **linear regression**.
 2. **Python Flask API**: Serving predictions via an HTTP server.
